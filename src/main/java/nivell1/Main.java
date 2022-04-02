@@ -1,20 +1,21 @@
 package nivell1;
 
-/*
-En tots els exercicis, crea un projecte Gradle amb classe Main que demostri l'ús del patró
- (amb les invocacions que necessiti).
-
-Observer
-Dissenya un sistema en el qual un Agent de Borsa (Observable) notifica a diverses agències de Borsa (Observers)
- canvis quan la Borsa puja o baixa.
-
-Serà necessari que l'objecte Observable mantingui referències als Observers.
-Encara que ha estat deprecada a partir de Java 9, pot utilitzar la interfície java.util.Observer si ho desitges
- */
-
-
 public class Main {
 
+    public static void main(String[] args) {
 
+        SubjectAgenteBolsa subject1 = new SubjectAgenteBolsa();
+        AgenciaBolsa bestinver = new AgenciaBolsa();
+        AgenciaBolsa renta4 = new AgenciaBolsa();
+
+        subject1.anadirObserver(bestinver);
+        subject1.anadirObserver(renta4);
+
+        subject1.notificarObservers("Sube la bolsa un 4% por el fin invasion Ucrania.");
+
+        System.out.println("[+] *Bestinver* ha sido notificada que: " + bestinver.getBolsa());
+        System.out.println("[+] *Renta4* ha sido notificada que: " + renta4.getBolsa());
+
+    }
 
 }
